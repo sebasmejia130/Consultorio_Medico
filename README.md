@@ -63,3 +63,13 @@ Consultorio varchar (50) not null,
 CONSTRAINT AgendamientoCitas_pk primary key(Id_cita,Id_medico),
 CONSTRAINT AgendamientoCitas_Id_cita_fk foreign key(Id_cita) references Citas(Id_cita),
 CONSTRAINT AgendamientoCitas_Id_medico_fk foreign key(Id_medico) references MedicoGeneral(Id_medico));
+
+CREATE TABLE HistorialCLinico (
+    Id_historia varchar (50) not null UNIQUE, 
+    Id_paciente varchar (50) not null, 
+    Id_medico varchar (50) not null, 
+    id_especialista varchar (50) not null, 
+    Anamnesis_paciente varchar (300) not null, 
+    CONSTRAINT HistorialClinico_Id_paciente_fk foreign key (Id_paciente),
+    CONSTRAINT HistorialClinico_Id_medico_fk foreign key(Id_medico), 
+    CONSTRAINT HistorialClinico_Id_especialista_fk foreign key(Id_especialista));
