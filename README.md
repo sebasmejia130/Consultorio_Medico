@@ -74,3 +74,18 @@ CREATE TABLE HistorialClinico (
     CONSTRAINT HistorialClinico_Id_paciente_fk foreign key (Id_paciente) references Paciente (Id_Paciene),
     CONSTRAINT HistorialClinico_Id_medico_fk foreign key(Id_medico) references MedicoGeneral (Id_medico), 
     CONSTRAINT HistorialClinico_Id_especialista_fk foreign key(Id_especialista) references Especialista (Id_espcialista));
+
+CREATE TABLE EntidadMedicaAfiliada (
+    Id_Entidad_Medica varchar (50) not null UNIQUE,
+    Nombre_Entidad_Medica varchar (50) not null,
+    Id_medico varchar (50) not null,
+    Id_especialista varchar (50) not null,
+    Id_paciente varchar(50) not null,
+    CONSTRAINT EntidadMedicaAfiliada primary key (Id_Entidad_Medica),
+    CONSTRAINT EntidadMedicaAfiliada_Id_medico_fk foreign key(Id_medico) references MedicoGeneral(Id_medico),
+    CONSTRAINT EntidadMedicaAfiliada_Id_especialista_fk foreign key(Id_especialista) references Especialista(Id_especialista),
+    CONSTRAINT EntidadMedicaAfiliada_Id_paciente_fk foreign key(Id_paciente) references paciente(Id_paciente));
+
+CREATE TABLE Incapacidades(
+    
+)
