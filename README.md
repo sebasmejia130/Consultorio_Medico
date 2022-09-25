@@ -86,6 +86,6 @@ CREATE TABLE EntidadMedicaAfiliada (
     CONSTRAINT EntidadMedicaAfiliada_Id_especialista_fk foreign key(Id_especialista) references Especialista(Id_especialista),
     CONSTRAINT EntidadMedicaAfiliada_Id_paciente_fk foreign key(Id_paciente) references paciente(Id_paciente));
 
-CREATE TABLE Incapacidades(
+CREATE TABLE Incapacidades(hjsahjkdsakjdashjkdashjkdshjkhkdajkhhksdjahjkdsa
     
 )
