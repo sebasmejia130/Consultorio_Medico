@@ -64,12 +64,13 @@ CONSTRAINT AgendamientoCitas_pk primary key(Id_cita,Id_medico),
 CONSTRAINT AgendamientoCitas_Id_cita_fk foreign key(Id_cita) references Citas(Id_cita),
 CONSTRAINT AgendamientoCitas_Id_medico_fk foreign key(Id_medico) references MedicoGeneral(Id_medico));
 
-CREATE TABLE HistorialCLinico (
+CREATE TABLE HistorialClinico (
     Id_historia varchar (50) not null UNIQUE, 
     Id_paciente varchar (50) not null, 
     Id_medico varchar (50) not null, 
     id_especialista varchar (50) not null, 
-    Anamnesis_paciente varchar (300) not null, 
-    CONSTRAINT HistorialClinico_Id_paciente_fk foreign key (Id_paciente),
-    CONSTRAINT HistorialClinico_Id_medico_fk foreign key(Id_medico), 
-    CONSTRAINT HistorialClinico_Id_especialista_fk foreign key(Id_especialista));
+    Anamnesis_paciente varchar (300) not null,
+    CONSTRAINT HiastorialClinico_pK primary Key (Id_historia),  
+    CONSTRAINT HistorialClinico_Id_paciente_fk foreign key (Id_paciente) references Paciente (Id_Paciene),
+    CONSTRAINT HistorialClinico_Id_medico_fk foreign key(Id_medico) references MedicoGeneral (Id_medico), 
+    CONSTRAINT HistorialClinico_Id_especialista_fk foreign key(Id_especialista) references Especialista (Id_espcialista));
