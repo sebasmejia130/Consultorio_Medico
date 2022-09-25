@@ -89,3 +89,13 @@ CREATE TABLE EntidadMedicaAfiliada (
 CREATE TABLE Incapacidades(hjsahjkdsakjdashjkdashjkdshjkhkdajkhhksdjahjkdsa
     
 )
+CREATE TABLE FormulasMedicas(
+    Id_formula varchar (50) not null unique,
+    Id_medico varchar (50) not null,
+    Id_especialista varchar (50) not null,
+    Id_paciente varchar (50) not null,
+    Medicamentos varchar (500) not null,
+    CONSTRAINT FormulasMedicas_pk primary key(Id_formula),
+    CONSTRAINT FormulasMedicas_Id_paciente_fk foreign key(Id_paciente) references Paciente(Id_paciente),
+    CONSTRAINT FormulasMedicas_Id_medico_fk foreign key(Id_medico) references MedicoGeneral(Id_medico),
+    CONSTRAINT FormulasMedicas_Id_especialista_fk foreign key(Id_especialista) references Especialista(Id_especialista));
