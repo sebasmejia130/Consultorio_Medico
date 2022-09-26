@@ -81,11 +81,19 @@ CREATE TABLE EntidadMedicaAfiliada (
     Id_medico varchar (50) not null,
     Id_especialista varchar (50) not null,
     Id_paciente varchar(50) not null,
-    CONSTRAINT EntidadMedicaAfiliada primary key (Id_Entidad_Medica),
+    CONSTRAINT EntidadMedicaAfiliada primary key(Id_Entidad_Medica),
     CONSTRAINT EntidadMedicaAfiliada_Id_medico_fk foreign key(Id_medico) references MedicoGeneral(Id_medico),
     CONSTRAINT EntidadMedicaAfiliada_Id_especialista_fk foreign key(Id_especialista) references Especialista(Id_especialista),
     CONSTRAINT EntidadMedicaAfiliada_Id_paciente_fk foreign key(Id_paciente) references paciente(Id_paciente));
 
 CREATE TABLE Incapacidades(
-    
-)
+    Id_incapacidad varchar (50) not null UNIQUE,
+    Id_medico varchar (50) not null,
+    Id_paciente varchar (50) not null,
+    Motivo_Incapacidad varchar (50) not null,
+    Fecha_Inicio varchar (50) not null,
+    Fecha_Finalizacion (50) not null,
+    CONSTRAINT Incapacidades primary key(Id_incapacidad),
+    CONSTRAINT Incapacidades_Id_medico_fk foreign key(Id_medico) references MedicoGeneral(Id_medico),
+    CONSTRAINT Incapacidades_Id_paciente_fk foreign key(Id_paciente) referencespaciente(Id_paciente));
+
