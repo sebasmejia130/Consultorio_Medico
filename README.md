@@ -97,3 +97,14 @@ CREATE TABLE FormulasMedicas(
     CONSTRAINT FormulasMedicas_Id_paciente_fk foreign key(Id_paciente) references Paciente(Id_paciente),
     CONSTRAINT FormulasMedicas_Id_medico_fk foreign key(Id_medico) references MedicoGeneral(Id_medico),
     CONSTRAINT FormulasMedicas_Id_especialista_fk foreign key(Id_especialista) references Especialista(Id_especialista));
+
+CREATE TABLE Ordenes_Remisiones (
+Id_orden varchar (50) not null, 
+Id_paciente varchar (50) not null, 
+Id_medico varchar (50) not null, 
+Tipo_Examen varchar (50) not null, 
+Lugar_Procedimiento varchar (50) not null, 
+fecha_Procedimiento date not null, 
+CONSTRAINT Ordenes_Remisiones_Id_orden_pk primary key (Id_orden), 
+CONSTRAINT Ordenes_Remisiones_Id_Paciente_fk foreign key (Id_Paciente) references Paciente (Id_Paciente), 
+CONSTRAINT Ordenes_Remisiones_Id_medico_fk foreign key (Id_medico) references Medico_General (Id_medico)); 
