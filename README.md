@@ -81,10 +81,21 @@ CREATE TABLE EntidadMedicaAfiliada (
     Id_medico varchar (50) not null,
     Id_especialista varchar (50) not null,
     Id_paciente varchar(50) not null,
-    CONSTRAINT EntidadMedicaAfiliada primary key (Id_Entidad_Medica),
+    CONSTRAINT EntidadMedicaAfiliada primary key(Id_Entidad_Medica),
     CONSTRAINT EntidadMedicaAfiliada_Id_medico_fk foreign key(Id_medico) references MedicoGeneral(Id_medico),
     CONSTRAINT EntidadMedicaAfiliada_Id_especialista_fk foreign key(Id_especialista) references Especialista(Id_especialista),
     CONSTRAINT EntidadMedicaAfiliada_Id_paciente_fk foreign key(Id_paciente) references paciente(Id_paciente));
+
+CREATE TABLE Incapacidades(
+    Id_incapacidad varchar (50) not null UNIQUE,
+    Id_medico varchar (50) not null,
+    Id_paciente varchar (50) not null,
+    Motivo_Incapacidad varchar (50) not null,
+    Fecha_Inicio varchar (50) not null,
+    Fecha_Finalizacion (50) not null,
+    CONSTRAINT Incapacidades primary key(Id_incapacidad),
+    CONSTRAINT Incapacidades_Id_medico_fk foreign key(Id_medico) references MedicoGeneral(Id_medico),
+    CONSTRAINT Incapacidades_Id_paciente_fk foreign key(Id_paciente) referencespaciente(Id_paciente));
 
 
 CREATE TABLE FormulasMedicas(
@@ -97,6 +108,7 @@ CREATE TABLE FormulasMedicas(
     CONSTRAINT FormulasMedicas_Id_paciente_fk foreign key(Id_paciente) references Paciente(Id_paciente),
     CONSTRAINT FormulasMedicas_Id_medico_fk foreign key(Id_medico) references MedicoGeneral(Id_medico),
     CONSTRAINT FormulasMedicas_Id_especialista_fk foreign key(Id_especialista) references Especialista(Id_especialista));
+<<<<<<< HEAD
 
 CREATE TABLE Ordenes_Remisiones (
 Id_orden varchar (50) not null, 
@@ -108,3 +120,5 @@ fecha_Procedimiento date not null,
 CONSTRAINT Ordenes_Remisiones_Id_orden_pk primary key (Id_orden), 
 CONSTRAINT Ordenes_Remisiones_Id_Paciente_fk foreign key (Id_Paciente) references Paciente (Id_Paciente), 
 CONSTRAINT Ordenes_Remisiones_Id_medico_fk foreign key (Id_medico) references Medico_General (Id_medico)); 
+=======
+>>>>>>> 2cabc0ad59163d4f410d3a4a1ffe499b5a5680a0
